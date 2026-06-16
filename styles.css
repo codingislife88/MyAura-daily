@@ -25,15 +25,15 @@ body {
 /* ===== HEADER ===== */
 header {
     background: linear-gradient(135deg, #ffffff 0%, #f7f9fa 50%, #eff2f5 100%);
-    color: white;
+    color: black;
     padding: 30px 20px;
     text-align: center;
 }
 
 .header-content {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: left;
+    justify-content: left;
     gap: 20px;
 }
 
