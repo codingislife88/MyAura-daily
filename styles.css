@@ -38,17 +38,18 @@ header {
 }
 
 .logo {
-    width: 80px;
-    height: 80px;
+    width: 240px;
+    height: 240px;
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .subtitle {
-    font-size: 1.4em;
+    font-size: 0.7em;
     font-weight: 600;
     opacity: 1;
     letter-spacing: 0.5px;
+    font-style: italic;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -504,12 +505,12 @@ footer p {
     }
 
     .logo {
-        width: 70px;
-        height: 70px;
+        width: 160px;
+        height: 160px;
     }
 
     .subtitle {
-        font-size: 1.1em;
+        font-size: 0.6em;
     }
 
     section h2 {
@@ -572,12 +573,12 @@ footer p {
     }
 
     .logo {
-        width: 60px;
-        height: 60px;
+        width: 120px;
+        height: 120px;
     }
 
     .subtitle {
-        font-size: 0.95em;
+        font-size: 0.5em;
     }
 
     .mood-emoji {
