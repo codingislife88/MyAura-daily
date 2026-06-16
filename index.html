@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyAura Daily - Daily Mood & Habits</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <!-- Header -->
         <header>
-            <h1>✨ MyAura Daily</h1>
-            <p class="subtitle">Track your mood and daily habits</p>
+            <div class="header-content">
+                <img src="IMG_0192.png" alt="MyAura Daily Logo" class="logo">
+                <p class="subtitle">Track your mood and daily habits</p>
+            </div>
         </header>
 
         <!-- Main Content -->
@@ -77,19 +81,6 @@
                 </form>
             </section>
 
-            <!-- Dashboard Section -->
-            <section class="dashboard-section">
-                <h2>📊 Past Entries</h2>
-                <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all">All Entries</button>
-                    <button class="filter-btn" data-filter="7">Last 7 Days</button>
-                    <button class="filter-btn" data-filter="30">Last 30 Days</button>
-                </div>
-                <div id="entriesList" class="entries-list">
-                    <p class="no-entries">No entries yet. Start tracking today!</p>
-                </div>
-            </section>
-
             <!-- Stats Section -->
             <section class="stats-section">
                 <h2>📈 Quick Stats</h2>
@@ -110,6 +101,57 @@
                         <p class="stat-label">Total Entries</p>
                         <p id="totalEntries" class="stat-value">0</p>
                     </div>
+                </div>
+            </section>
+
+            <!-- Insights Section -->
+            <section class="insights-section">
+                <h2>💡 Your Wellness Insights</h2>
+                <div id="insightsList" class="insights-list">
+                    <p class="no-insights">Log more entries to unlock insights! (Need at least 7 entries)</p>
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <h2>📊 Your Wellness Trends</h2>
+                
+                <!-- Metric Filter Buttons -->
+                <div class="metric-filter">
+                    <button class="metric-btn active" data-metric="mood">😊 Mood</button>
+                    <button class="metric-btn" data-metric="sleep">😴 Sleep</button>
+                    <button class="metric-btn" data-metric="stress">😰 Stress</button>
+                    <button class="metric-btn" data-metric="exercise">🏃 Exercise</button>
+                    <button class="metric-btn" data-metric="screenTime">📱 Screen Time</button>
+                    <button class="metric-btn" data-metric="outsideTime">🌞 Outside Time</button>
+                </div>
+
+                <!-- Time Period Filter Buttons -->
+                <div class="time-filter">
+                    <button class="time-btn active" data-days="7">Last 7 Days</button>
+                    <button class="time-btn" data-days="30">Last 30 Days</button>
+                    <button class="time-btn" data-days="all">All Time</button>
+                </div>
+
+                <!-- Chart Container -->
+                <div class="chart-container">
+                    <canvas id="trendChart"></canvas>
+                </div>
+
+                <!-- No Data Message -->
+                <p id="noChartData" class="no-data-message" style="display: none;">Not enough data to display chart. Keep logging entries!</p>
+            </section>
+
+            <!-- Dashboard Section -->
+            <section class="dashboard-section">
+                <h2>📅 Past Entries</h2>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Entries</button>
+                    <button class="filter-btn" data-filter="7">Last 7 Days</button>
+                    <button class="filter-btn" data-filter="30">Last 30 Days</button>
+                </div>
+                <div id="entriesList" class="entries-list">
+                    <p class="no-entries">No entries yet. Start tracking today!</p>
                 </div>
             </section>
         </main>
