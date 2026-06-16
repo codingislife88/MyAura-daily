@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     background: white;
     border-radius: 20px;
@@ -26,18 +26,29 @@ body {
 header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 40px 20px;
+    padding: 30px 20px;
     text-align: center;
 }
 
-header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .subtitle {
-    font-size: 1.1em;
-    opacity: 0.9;
+    font-size: 1.4em;
+    font-weight: 600;
+    opacity: 1;
+    letter-spacing: 0.5px;
 }
 
 /* ===== MAIN CONTENT ===== */
@@ -193,6 +204,153 @@ textarea {
     transform: translateY(-2px);
 }
 
+/* ===== INSIGHTS SECTION ===== */
+.insights-section {
+    background: linear-gradient(135deg, #ffd93d 0%, #ffb84d 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: 2px solid #ffc107;
+}
+
+.insights-section h2 {
+    color: #fff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.insights-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.insight-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 5px solid #667eea;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s;
+}
+
+.insight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.insight-title {
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #667eea;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.insight-description {
+    color: #555;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.insight-metric {
+    display: inline-block;
+    background: #667eea;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 600;
+    margin: 0 2px;
+}
+
+.insight-positive {
+    border-left-color: #6bcf7f;
+}
+
+.insight-neutral {
+    border-left-color: #ffa502;
+}
+
+.insight-warning {
+    border-left-color: #ff6b6b;
+}
+
+.no-insights {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 30px 20px;
+    font-size: 1em;
+    font-weight: 600;
+}
+
+/* ===== METRIC & TIME FILTER BUTTONS ===== */
+.metric-filter,
+.time-filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.metric-btn,
+.time-btn {
+    padding: 10px 16px;
+    border: 2px solid #e0e0e0;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
+    font-size: 0.9em;
+}
+
+.metric-btn:hover,
+.time-btn:hover {
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.metric-btn.active,
+.time-btn.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+/* ===== CHART SECTION ===== */
+.charts-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border: 2px solid #e0e0e0;
+}
+
+.charts-section h2 {
+    color: #667eea;
+    margin-bottom: 25px;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin: 30px 0;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.no-data-message {
+    text-align: center;
+    color: #999;
+    padding: 40px 20px;
+    font-size: 1.1em;
+}
+
 /* ===== FILTER BUTTONS ===== */
 .filter-buttons {
     display: flex;
@@ -340,8 +498,18 @@ footer p {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 600px) {
-    header h1 {
-        font-size: 2em;
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .logo {
+        width: 70px;
+        height: 70px;
+    }
+
+    .subtitle {
+        font-size: 1.1em;
     }
 
     section h2 {
@@ -361,7 +529,9 @@ footer p {
         align-items: center;
     }
 
-    .filter-buttons {
+    .filter-buttons,
+    .metric-filter,
+    .time-filter {
         justify-content: center;
     }
 
@@ -378,6 +548,18 @@ footer p {
     section {
         margin-bottom: 30px;
     }
+
+    .chart-container {
+        height: 300px;
+    }
+
+    .charts-section {
+        padding: 20px;
+    }
+
+    .insights-section {
+        padding: 20px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -386,11 +568,16 @@ footer p {
     }
 
     header {
-        padding: 30px 15px;
+        padding: 20px 15px;
     }
 
-    header h1 {
-        font-size: 1.8em;
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .subtitle {
+        font-size: 0.95em;
     }
 
     .mood-emoji {
@@ -399,5 +586,28 @@ footer p {
 
     .stat-value {
         font-size: 1.5em;
+    }
+
+    .metric-btn,
+    .time-btn {
+        padding: 8px 12px;
+        font-size: 0.8em;
+    }
+
+    .chart-container {
+        height: 250px;
+        padding: 10px;
+    }
+
+    .insight-card {
+        padding: 15px;
+    }
+
+    .insight-title {
+        font-size: 1em;
+    }
+
+    .insight-description {
+        font-size: 0.9em;
     }
 }
